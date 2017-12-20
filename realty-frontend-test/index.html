@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./lib/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+  <button id="btn">获取用户</button>
+  <button id="btn2">获取商品列表</button>
+</body>
+<script>
+  function getUsers() {
+    var domain = 'http://47.94.89.187/';
+    $.ajax({
+      url: domain + "users",
+      type: 'post',
+      dataType: 'json',
+      success: function() {
+        console.log('success')
+      }
+    });
+  }
+
+  function getGoodsList() {
+    var domain = 'http://47.94.89.187/';
+    $.ajax({
+      url: domain + "goodsList",
+      type: 'post',
+      dataType: 'json',
+      success: function() {
+        console.log('success')
+      }
+    });
+  }
+  
+  $("#btn").on("click", function() {
+    getUsers();
+  })
+
+  $("#btn2").on("click", function() {
+    getGoodsList();
+  })
+</script>
+</html>
